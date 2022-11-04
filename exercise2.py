@@ -5,6 +5,10 @@ from exercise1 import Vector
 class Point2D:
     def __init__(self, x: float, y: float) -> None:
         self._coordinates = Vector([x, y])
+        
+    def __sub__(self, other: Vector) -> Point2D:
+        assert len(other._coordinates) == 2
+        return Point2D(self.x - other[0], self.y - other[1])
 
     @property
     def x(self) -> float:
@@ -35,3 +39,4 @@ def test_point_vector_subtraction() -> None:
     point -= Vector([1.1, 2.2])
     assert isclose(point.x, -0.1)
     assert isclose(point.y, -0.2)
+
