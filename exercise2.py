@@ -14,7 +14,7 @@ class Point2D:
     def y(self) -> float:
         return self._coordinates[1]
 
-    def __add__(self, other: Vector) -> Vector:
+    def __add__(self, other: Vector) -> Point2D:
         assert len(other._coordinates) == 2
         return Point2D(self.x + other[0], self.y + other[1])
 
